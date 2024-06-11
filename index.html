@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Flyer Generator</title>
+</head>
+<body>
+    <!-- Header section -->
+    <div class="header text-3xl lg:flex lg:flex-row lg:items-center lg:justify-between m-10 sm:text-center flex flex-col">
+        <div class="page-title font-bold text-5xl mb-5 lg:text-left">Akatakyie</div>
+        <div class="page-info font-light uppercase lg:text-right">Flyer Generator</div>
+    </div>
+
+    <div class="main-section lg:grid lg:grid-cols-2 flex flex-col wrap m-10 h-16">
+        <div class="flyer-preview mr-2 h-16">
+            <img src="" id="preview" alt="image-preview">
+        </div>
+        <div class="user-input-section flex flex-col ml-2 p-5 items-center justify-center">
+            <div class="image-upload mb-10 cursor-pointer">
+                <div class="lg:text-2xl sm:text-lg font-medium uppercase flex lg:flex-row flex-col items-center justify-between">
+                    Upload Image
+                    <span>
+                        <input type="file" name="image-upload" id="user-image" accept="image/jpeg, image/png, image/jpg" class="p-5 cursor-pointer" hidden>
+                        <label for="user-image" class="mr-10 p-5 px-10 bg-slate-300 flex flex-row items-center">
+
+                            <!-- Upload Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="mr-4">
+                                <mask id="ipUpload0" width="48" height="48" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+                                        <path fill="#fff" d="M48 0H0V48H48V0Z"/>
+                                </mask>
+                                <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" mask="url(#ipUpload0)">
+                                    <path d="M6 24.0083V42H42V24"/>
+                                    <path d="M33 15L24 6L15 15"/>
+                                    <path d="M23.9917 32V6"/>
+                                </g>
+                            </svg>
+
+                                <span id="image-name">No file chosen</span>
+                        </label>
+                    </span>
+                </div>
+            </div>
+            <div class="edit-caption mt-20 flex lg:flex-row flex-col items-center justify-between">
+                <p class="text-2xl font-medium uppercase">
+                    Edit Caption
+                </p>
+                <textarea name="" id="" cols="50" rows="4" class="rounded-md p-5 text-slate-900 my-3 mr-10 border border-black" placeholder="I am proud to be a relative of an akatakyie"></textarea>
+            </div>
+            <div class="text-center mt-10">
+                <button class="rounded-md bg-blue-600 text-white p-5 px-10 uppercase text-2xl w-full  hover:bg-blue-500">Download</button>
+            </div>
+        </div>
+    </div>
+</body> 
+<script src="script.js"></script>
+</html>

@@ -1,10 +1,11 @@
 const fileInput = document.getElementById('user-image');
 const imageName = document.getElementById('image-name');
-const preview = document.getElementById('preview');
+const preview = document.getElementById('uploaded-image');
 const reader = new FileReader();
+let fileName = "";
 
 function handleEvent(event) {
-  console.log(`${event.type}: ${event.loaded} bytes transferred\n`);
+  // console.log(`${event.type}: ${event.loaded} bytes transferred\n`);
 
   if (event.type === "load") {
     preview.src = reader.result;
@@ -12,12 +13,7 @@ function handleEvent(event) {
 }
 
 function addListeners(reader) {
-  reader.addEventListener("loadstart", handleEvent);
   reader.addEventListener("load", handleEvent);
-  reader.addEventListener("loadend", handleEvent);
-  reader.addEventListener("progress", handleEvent);
-  reader.addEventListener("error", handleEvent);
-  reader.addEventListener("abort", handleEvent);
 }
 
 // Add listeners once
@@ -27,8 +23,31 @@ function handleSelected(e) {
   const selectedFile = fileInput.files[0];
   if (selectedFile) {
     imageName.innerText = selectedFile.name;
+    fileName = selectedFile.name;
     reader.readAsDataURL(selectedFile);
   }
 }
 
 fileInput.addEventListener("change", handleSelected);
+
+document.getElementById('download').addEventListener('click', function() {
+  html2canvas(document.getElementById('frame-container')).then(function(canvas) {
+    let link = document.createElement('a');
+    link.href = canvas.toDataURL('image/png');
+    link.download = `akatakyie_${fileName}`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+});
+
+document.querySelectorAll('.frame-option').forEach(option => {
+  option.addEventListener('click', function() {
+    const frameSrc = option.getAttribute('data-frame');
+    document.getElementById('current-frame').src = frameSrc;
+    document.querySelectorAll('.frame-option img').forEach(image => {
+      image.classList.remove('selected');
+    });
+    option.querySelector('img').classList.add('selected');
+  });
+})

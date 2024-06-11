@@ -14,16 +14,47 @@
     </div>
 
     <div class="main-section lg:grid lg:grid-cols-2 flex flex-col wrap m-10 h-16">
-        <div class="flyer-preview mr-2 h-16">
-            <img src="" id="preview" alt="image-preview">
+
+        <!-- Frame & Image section -->
+        <div class="flex flex-col">
+            <div class="mr-2 text-center" id="frame-container">
+                <img src="" id="uploaded-image" class="uploaded-image" alt="image-preview">
+                <img id="current-frame" class="frame" src="./images/frame.png" alt="Current Frame">
+            </div>
+
+            <!-- Frame alternatives -->
+            <div class="frame-selector flex flex-row flex-wrap mt-5 p-5 rounded-md border border-slate-400">
+                <div class="frame-option" data-frame="./images/frame.png">
+                    <img src="./images/frame.png" alt="Frame 1">
+                </div>
+                <!-- Test frame (To demonstrate frame selection) -->
+                <div class="frame-option" data-frame="./images/capture.png">
+                    <img src="./images/capture.png" alt="Frame 2">
+                </div>
+                <div class="frame-option" data-frame="./images/frame.png">
+                    <img src="./images/frame.png" alt="Frame 3">
+                </div>
+                <div class="frame-option" data-frame="./images/frame.png">
+                    <img src="./images/frame.png" alt="Frame 3">
+                </div>
+                <div class="frame-option" data-frame="./images/frame.png">
+                    <img src="./images/frame.png" alt="Frame 3">
+                </div>
+                <div class="frame-option" data-frame="./images/frame.png">
+                    <img src="./images/frame.png" alt="Frame 3">
+                </div>
+            </div>
         </div>
+
+
+        <!-- Image Upload and caption selection -->
         <div class="user-input-section flex flex-col ml-2 p-5 items-center justify-center">
             <div class="image-upload mb-10 cursor-pointer">
-                <div class="lg:text-2xl sm:text-lg font-medium uppercase flex lg:flex-row flex-col items-center justify-between">
+                <div class="lg:text-2xl sm:text-lg font-medium uppercase flex lg:flex-row lg:mx-2 flex-col items-center justify-between">
                     Upload Image
                     <span>
-                        <input type="file" name="image-upload" id="user-image" accept="image/jpeg, image/png, image/jpg" class="p-5 cursor-pointer" hidden>
-                        <label for="user-image" class="mr-10 p-5 px-10 bg-slate-300 flex flex-row items-center">
+                        <input type="file" name="image-upload" id="user-image" accept="image/jpeg, image/png, image/jpg" class="p-5" hidden>
+                        <label for="user-image" class="mr-10 p-5 px-10 bg-slate-300 flex flex-row items-center ml-3 cursor-pointer">
 
                             <!-- Upload Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="mr-4">
@@ -36,23 +67,28 @@
                                     <path d="M23.9917 32V6"/>
                                 </g>
                             </svg>
-
+                                <!-- Displays file name after upload -->
                                 <span id="image-name">No file chosen</span>
                         </label>
                     </span>
                 </div>
             </div>
-            <div class="edit-caption mt-20 flex lg:flex-row flex-col items-center justify-between">
+
+            <!-- Edit caption section -->
+            <div class="edit-caption mt-20 flex lg:flex-row lg:flex-wrap lg:text-left text-center flex-col items-center justify-between">
                 <p class="text-2xl font-medium uppercase">
                     Edit Caption
                 </p>
-                <textarea name="" id="" cols="50" rows="4" class="rounded-md p-5 text-slate-900 my-3 mr-10 border border-black" placeholder="I am proud to be a relative of an akatakyie"></textarea>
+                <textarea name="" id="" cols="50" rows="4" class="rounded-md p-5 text-slate-900 my-3 lg:mr-10 lg:ml-3 border border-black" placeholder="I am proud to be a relative of an akatakyie"></textarea>
             </div>
             <div class="text-center mt-10">
-                <button class="rounded-md bg-blue-600 text-white p-5 px-10 uppercase text-2xl w-full  hover:bg-blue-500">Download</button>
+                <button id="download" class="rounded-md bg-blue-600 text-white p-5 px-10 uppercase text-2xl w-full  hover:bg-blue-500">
+                    Download
+                </button>
             </div>
         </div>
     </div>
 </body> 
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="script.js"></script>
 </html>

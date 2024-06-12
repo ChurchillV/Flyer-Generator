@@ -31,7 +31,10 @@ function handleSelected(e) {
 fileInput.addEventListener("change", handleSelected);
 
 document.getElementById('download').addEventListener('click', function() {
-  html2canvas(document.getElementById('frame-container')).then(function(canvas) {
+  html2canvas(document.getElementById('frame-container'), {
+    allowTaint: true,
+    foreignObjectRendering: true,
+  }).then(function(canvas) {
     let link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
     link.download = `akatakyie_${fileName}`;
